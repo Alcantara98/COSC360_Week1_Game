@@ -37,6 +37,29 @@ public class Player : MonoBehaviour {
             // the right wall flag to true
             atRightWall = true;
         }
+        else
+        {
+            // Collision with something that is not a wall
+            // Check if collided with a projectile
+            // A projectile has a Projectile script component,
+            // so try to get a reference to that component
+            Projectile projectile = other.GetComponent<Projectile>();
+
+            //If that refernce is not null, then check if it's an enemyProjectile      
+            if (projectile != null && projectile.enemyProjectile)
+            {
+                // Collided with an enemy projectile
+
+                // Destroy the projectile game object
+                Destroy(other.gameObject);
+
+                // Report player hit to the game master
+                GameMaster.PlayerHit();
+
+                // Destroy self
+                Destroy(gameObject);
+            }
+        }
     }
 
     // When no longer colliding with an object...
@@ -56,24 +79,21 @@ public class Player : MonoBehaviour {
             // the right wall flag to true
             atRightWall = false;
         }
-        else{
-            // Collision with something that is not a wall
-            // Check if collided with a projectile
-            // A projectile has a Projectile script component,
-            // so try to get a reference to that component
-            Projectile projectile = other.GetComponent<Projectile>();
+    }
 
-            //If that refernce is not null, then check if it's an enemyProjectile      
-            if (projectile != null && projectile.enemyProjectile)
-            {
-                // Collided with an enemy projectile
+    // When player collides with an object that is
+    // not a trigger...
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        // If the other object is tagged as "Player"...
+        if (other.gameObject.tag == "Enemy")
+        {
 
-                // Destroy the projectile game object
-                Destroy(other.gameObject);
+            // Report player hit to the game master
+            GameMaster.PlayerHit();
 
-                // Destroy self
-                Destroy(gameObject);
-            }
+            // Destroy the Player game object
+            Destroy(gameObject);
         }
     }
 
