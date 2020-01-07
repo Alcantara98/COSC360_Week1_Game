@@ -487,7 +487,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a63cc0574902d478eb4db5595b1ca34e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shotPrefab: {fileID: 0}
+  shotPrefab: {fileID: 2461291549593763377, guid: 0a4115aaf1ad542f4b91d0b979677c81,
+    type: 3}
   autoShootProbability: 0
   fireCooldownTime: 0.2
 --- !u!1 &1118915821
