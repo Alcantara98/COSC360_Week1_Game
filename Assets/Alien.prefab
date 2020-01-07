@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3061568891247817306}
   - component: {fileID: -7340254530542069532}
   - component: {fileID: -6401745203650254710}
-  - component: {fileID: 128969562147868069}
+  - component: {fileID: 6850253225126773141}
   m_Layer: 0
   m_Name: Alien
   m_TagString: Untagged
@@ -120,7 +120,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.325
---- !u!114 &128969562147868069
+--- !u!114 &6850253225126773141
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
