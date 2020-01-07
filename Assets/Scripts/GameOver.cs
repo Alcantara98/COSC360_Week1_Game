@@ -1,7 +1,18 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour
 {
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (Input.anyKey)
+        {
+            // Go back to main menu 
+            SceneManager.LoadScene("MainMenu");
+        }
+    }
 
     // Display game over message
     void OnGUI()
@@ -33,5 +44,9 @@ public class GameOver : MonoBehaviour
         }
         // Show lost/won message
         GUI.Label(new Rect(0, Screen.height / 4f + 80f, Screen.width, 70), message);
+
+        // Last line will be shown in white
+        GUI.color = Color.white;
+        GUI.Label(new Rect(0, Screen.height / 4f + 240f, Screen.width, 70), "Press any key to continue...");
     }
 }
