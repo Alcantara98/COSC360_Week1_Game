@@ -3,11 +3,9 @@ using UnityEngine.SceneManagement;
 
 public class GameMaster : MonoBehaviour
 {
-
-
     // Static variables - there's only one instance
     // of this variable for the entire game
-
+    public static int enemyLeft = 0;
     // Player health - always start with 3 lives
     public static int playerHealth = 3;
     // Player score
@@ -27,12 +25,15 @@ public class GameMaster : MonoBehaviour
         // aliens remaining in the wave)
         Component[] aliensLeft = enemyWave.GetComponentsInChildren<Alien>();
 
+        enemyLeft = aliensLeft.Length;
         // If only one alien is left, that's the alien that just has been
         // hit and is about to be deleted...so no more aliens will be left
         if (aliensLeft.Length == 1)
         {
-            SceneManager.LoadScene("GameOver");
+            //SceneManager.LoadScene("GameOver");
+            enemyLeft = 1;
         }
+        
     }
 
     // Method to call when player is hit
