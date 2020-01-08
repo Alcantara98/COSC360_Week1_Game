@@ -92,8 +92,11 @@ public class Player : MonoBehaviour {
             // Report player hit to the game master
             GameMaster.PlayerHit();
 
+            //Destroy rocket
+            Destroy(other.gameObject);
+
             // Destroy the Player game object
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
     }
 

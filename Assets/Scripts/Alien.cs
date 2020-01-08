@@ -53,6 +53,7 @@ public class Alien : MonoBehaviour
 
                 // Destroy self
                 Destroy(gameObject);
+               
             }
         }
     }

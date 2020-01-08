@@ -704,7 +704,7 @@ MonoBehaviour:
   shotPrefab: {fileID: 2461291549593763377, guid: 0a4115aaf1ad542f4b91d0b979677c81,
     type: 3}
   autoShootProbability: 0
-  fireCooldownTime: 0.2
+  fireCooldownTime: 0.1
   shotSound: {fileID: 8300000, guid: 2e345bddae99b4640912329008c744dd, type: 3}
 --- !u!1 &1118915821
 GameObject:

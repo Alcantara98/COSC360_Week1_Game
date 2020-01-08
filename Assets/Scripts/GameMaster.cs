@@ -7,7 +7,7 @@ public class GameMaster : MonoBehaviour
     // of this variable for the entire game
     public static int enemyLeft = 0;
     // Player health - always start with 3 lives
-    public static int playerHealth = 3;
+    public static int playerHealth = 10;
     // Player score
     public static int playerScore = 0;
 
@@ -41,13 +41,8 @@ public class GameMaster : MonoBehaviour
     {
         playerHealth--;
         // Reduce player's lives
-        if (playerHealth > 0)
-        {
-            // If more lives left, then reload the
-            // level 
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
-        else
+
+        if(playerHealth == 0)
         {
             //No more lives left, load the GameOver scene
             SceneManager.LoadScene("GameOver");
