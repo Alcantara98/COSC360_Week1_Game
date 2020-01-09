@@ -32,6 +32,22 @@ public class Alien : MonoBehaviour
             // Set direction of the wave
             wave.SetDirectionLeft();
         }
+        else if (other.tag == "BottomWall")
+        { 
+            GameMaster.EnemyHit(this);
+            Destroy(gameObject);
+        }
+        else if (other.tag == "Wave")
+        {
+            GameMaster.EnemyHit(this);
+            Destroy(gameObject);
+        }
+        else if (other.tag == "Player")
+        {
+            GameMaster.EnemyHit(this);
+            GameMaster.PlayerHit();
+            Destroy(gameObject);
+        }
         else
         {
             // Collision with something that is not a wall

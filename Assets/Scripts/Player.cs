@@ -83,6 +83,7 @@ public class Player : MonoBehaviour {
 
     // When player collides with an object that is
     // not a trigger...
+    /*
     void OnCollisionEnter2D(Collision2D other)
     {
         // If the other object is tagged as "Player"...
@@ -99,6 +100,7 @@ public class Player : MonoBehaviour {
             //Destroy(gameObject);
         }
     }
+    */
 
     // Update is called once per frame
     void Update () {

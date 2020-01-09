@@ -6,6 +6,7 @@ public class LevelMaster : MonoBehaviour
     // Variables referencing two edge colliders
     public EdgeCollider2D leftWall;
     public EdgeCollider2D rightWall;
+    public EdgeCollider2D bottomWall;
 
     // Use this for initialization
     void Start()
@@ -44,6 +45,20 @@ public class LevelMaster : MonoBehaviour
         // Position the left wall edge collider
         // at the left edge of the camera
         rightWall.points = edgePoints;
+
+        // Convert screen coordinates point (0,0) to world coordinates
+        Vector3 bottomLeft = Camera.main.ScreenToWorldPoint(new Vector3(0f, 0f, 0f));
+        // Convert screen coordinates point (W,0) to world coordinates
+        Vector3 bottomRight = Camera.main.ScreenToWorldPoint(new Vector3(screenW, 0f, 0f));
+
+        // Set the two points in the array to screen bottom right
+        // and screen bottom left points            
+        edgePoints[0] = bottomLeft;
+        edgePoints[1] = bottomRight;
+
+        // Position the bottom wall edge collider
+        // at the bottom edge of the camera
+        bottomWall.points = edgePoints;
     }
 
     // HUD
@@ -52,14 +67,14 @@ public class LevelMaster : MonoBehaviour
         // Show player score in white on the top left of the screen
         GUI.color = Color.white;
         GUI.skin.label.alignment = TextAnchor.UpperLeft;
-        GUI.skin.label.fontSize = 40;
+        GUI.skin.label.fontSize = 20;
         GUI.skin.label.fontStyle = FontStyle.Bold;
         GUI.Label(new Rect(20, 20, 500, 100), "Score: " + GameMaster.playerScore);
 
         // Show the player lives in red on the top right of the screen
         GUI.color = Color.red;
         GUI.skin.label.alignment = TextAnchor.UpperRight;
-        GUI.skin.label.fontSize = 40;
+        GUI.skin.label.fontSize = 20;
         GUI.skin.label.fontStyle = FontStyle.Bold;
         GUI.Label(new Rect(Screen.width - 320, 20, 300, 100), "Lives: " + GameMaster.playerHealth);
     }

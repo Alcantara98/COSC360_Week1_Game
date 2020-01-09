@@ -15,8 +15,6 @@ public class EnemyWave : MonoBehaviour
     // Direction of the wave movement (-ve means left, +ve is right)
     int direction = -1;
 
-    public float amountMovedDown = 0;
-
     // Use this for initialization
     void Start()
     {
@@ -27,14 +25,11 @@ public class EnemyWave : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float sub = Time.deltaTime * speed * 0.2f;
-        amountMovedDown += sub;
         // Move the wave on the horizonatal axis
-        transform.Translate(new Vector3(Time.deltaTime * direction * 2, -1 * sub, 0));
+        transform.Translate(new Vector3(Time.deltaTime * direction * 2.0f, -1 * Time.deltaTime * speed * 0.2f, 0f));
         if(GameMaster.enemyLeft == 1)
         {
-            transform.Translate(new Vector3(0, amountMovedDown, 0));
-            amountMovedDown = 0;
+            //transform.position = new Vector3(0,0,0);
             SetMissiles();
 
             speed++;
@@ -82,7 +77,7 @@ public class EnemyWave : MonoBehaviour
     {
         direction = -1;
         float gapBetweenAliens = 1.5f;
-
+        float yOffset = 0.05f;
         for (int y = 0; y < 2; y++)
         {
             // Horizontal offset for every other row
@@ -93,10 +88,12 @@ public class EnemyWave : MonoBehaviour
                 Transform alien = Instantiate(alienPrefab);
                 alien.parent = transform;
                 // Position the newly created object in the wave
-                alien.localPosition = new Vector3((x * gapBetweenAliens) + offsetX, 0 + (y * gapBetweenAliens) + 4, 0);
+                alien.localPosition = new Vector3((x * gapBetweenAliens) + offsetX, 0 + (y * gapBetweenAliens) + 4 + yOffset, 0);
                 alien.rotation = Quaternion.identity;
                 alien.Rotate(0.0f, 0.0f, -210.0f, Space.Self);
+                yOffset += 0.02f;
             }
         }
+        transform.position = new Vector3(0, 0, -1);
     }
 }
