@@ -12,10 +12,13 @@ public class GameMaster : MonoBehaviour
     public static int playerScore = 0;
 
     // Method to call when enemy is hit
-    public static void EnemyHit(Alien alien)
+    public static void EnemyHit(Alien alien, bool player)
     {
         // Add enemy points to player's score
-        playerScore += alien.points;
+        if (player == true)
+        {
+            playerScore += alien.points;
+        }
 
         // Get the reference to alien's parent, the wave object
         Transform enemyWave = alien.transform.parent;
@@ -34,7 +37,6 @@ public class GameMaster : MonoBehaviour
             //SceneManager.LoadScene("GameOver");
            // enemyLeft = 1;
         //}
-        
     }
 
     // Method to call when player is hit

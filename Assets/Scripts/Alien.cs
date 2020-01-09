@@ -34,17 +34,17 @@ public class Alien : MonoBehaviour
         }
         else if (other.tag == "BottomWall")
         { 
-            GameMaster.EnemyHit(this);
+            GameMaster.EnemyHit(this, false);
             Destroy(gameObject);
         }
         else if (other.tag == "Wave")
         {
-            GameMaster.EnemyHit(this);
+            GameMaster.EnemyHit(this, false);
             Destroy(gameObject);
         }
         else if (other.tag == "Player")
         {
-            GameMaster.EnemyHit(this);
+            GameMaster.EnemyHit(this, false);
             GameMaster.PlayerHit();
             Destroy(gameObject);
         }
@@ -65,7 +65,7 @@ public class Alien : MonoBehaviour
                 Destroy(other.gameObject);
 
                 // Report enemy hit to the game master
-                GameMaster.EnemyHit(this);
+                GameMaster.EnemyHit(this, true);
 
                 // Destroy self
                 Destroy(gameObject);

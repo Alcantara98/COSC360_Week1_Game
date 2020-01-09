@@ -9,6 +9,8 @@ public class EnemyWave : MonoBehaviour
     // Variable poitning to object prefab
     public Transform alienPrefab;
 
+    public int layerPlus = 0;
+
     // Speed of the wave movement
     public float speed = 2;
 
@@ -25,6 +27,7 @@ public class EnemyWave : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(Time.deltaTime);
         // Move the wave on the horizonatal axis
         transform.Translate(new Vector3(Time.deltaTime * direction * 2.0f, -1 * Time.deltaTime * speed * 0.2f, 0f));
         if(GameMaster.enemyLeft == 1)
@@ -32,7 +35,7 @@ public class EnemyWave : MonoBehaviour
             //transform.position = new Vector3(0,0,0);
             SetMissiles();
 
-            speed++;
+            //speed += 2;
             GameMaster.enemyLeft = 0;
         }
     }
@@ -76,24 +79,25 @@ public class EnemyWave : MonoBehaviour
     public void SetMissiles()
     {
         direction = -1;
-        float gapBetweenAliens = 1.5f;
-        float yOffset = 0.05f;
-        for (int y = 0; y < 2; y++)
+        float gapBetweenAliens = 1.0f;
+        float yOffset = 0.0f;
+        for (int y = 0; y < 2 + layerPlus; y++)
         {
             // Horizontal offset for every other row
             float offsetX = ((y % 2 == 0) ? 0.0f : 0.5f) * gapBetweenAliens;
-            for (int x = -3; x < 3; ++x)
+            for (int x = -4; x < 4; ++x)
             {
                 // Create new game object (from the prefab)
                 Transform alien = Instantiate(alienPrefab);
                 alien.parent = transform;
                 // Position the newly created object in the wave
-                alien.localPosition = new Vector3((x * gapBetweenAliens) + offsetX, 0 + (y * gapBetweenAliens) + 4 + yOffset, 0);
+                alien.localPosition = new Vector3((x * gapBetweenAliens) + offsetX, 0 + (y * (gapBetweenAliens - 0.5f)) + 4 + yOffset, 0);
                 alien.rotation = Quaternion.identity;
                 alien.Rotate(0.0f, 0.0f, -210.0f, Space.Self);
-                yOffset += 0.02f;
+                yOffset += 0.1f;
             }
         }
         transform.position = new Vector3(0, 0, -1);
+        layerPlus++;
     }
 }
