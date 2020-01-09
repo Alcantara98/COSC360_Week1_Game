@@ -4,6 +4,7 @@ public class Alien : MonoBehaviour
 {
     //Points the alien is worth
     public int points = 100;
+    public GameObject explosion;
 
     // When enemy collides with an object with a
     // collider that is a trigger...
@@ -68,8 +69,11 @@ public class Alien : MonoBehaviour
                 GameMaster.EnemyHit(this, true);
 
                 // Destroy self
+                
+                Instantiate(explosion, transform.position, Quaternion.identity);
                 Destroy(gameObject);
-               
+                //gameObject.SetActive(false);
+
             }
         }
     }

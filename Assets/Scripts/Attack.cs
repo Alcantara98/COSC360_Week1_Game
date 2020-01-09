@@ -61,13 +61,13 @@ public class Attack : MonoBehaviour
             // Set time left until next shot
             // to the cooldown time
             fireCooldownTimeLeft = fireCooldownTime;
-        }
 
-        // Check if shotSound variable has been set...if yes,
-        // then play it
-        if (shotSound != null)
-        {
-            AudioSource.PlayClipAtPoint(shotSound, transform.position);
+            // Check if shotSound variable has been set...if yes,
+            // then play it
+            if (shotSound != null)
+            {
+                AudioSource.PlayClipAtPoint(shotSound, transform.position);
+            }
         }
     }
 }

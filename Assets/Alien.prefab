@@ -118,6 +118,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points: 100
+  explosion: {fileID: 7857839376855828405, guid: 82e6c826718a8eb42bdb9c771ba8cfd0,
+    type: 3}
 --- !u!114 &4058514198948078252
 MonoBehaviour:
   m_ObjectHideFlags: 0

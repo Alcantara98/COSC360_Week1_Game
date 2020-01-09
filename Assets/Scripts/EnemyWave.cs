@@ -9,6 +9,8 @@ public class EnemyWave : MonoBehaviour
     // Variable poitning to object prefab
     public Transform alienPrefab;
 
+    public float changeDirectionProbability;
+
     public int layerPlus = 0;
 
     // Speed of the wave movement
@@ -27,7 +29,21 @@ public class EnemyWave : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(Time.deltaTime);
+        // Generate number a random number between 0 and 1
+        float randomSample = Random.Range(0f, 1f);
+        // If that random number is less than the 
+        // probability of shooting, then try to shoot
+        if (randomSample < changeDirectionProbability)
+        {
+            if(direction == -1)
+            {
+                SetDirectionRight();
+            }
+            else if(direction == 1)
+            {
+                SetDirectionLeft();
+            }
+        }
         // Move the wave on the horizonatal axis
         transform.Translate(new Vector3(Time.deltaTime * direction * 2.0f, -1 * Time.deltaTime * speed * 0.2f, 0f));
         if(GameMaster.enemyLeft == 1)

@@ -223,7 +223,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 446581113}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.58, y: -4.36, z: -3}
+  m_LocalPosition: {x: -0.58, y: -4.43, z: -4}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -241,8 +241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f6e40697b542ed4189a3cccfb53f7cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveTransform: {fileID: 0}
-  WaveSpeed: 1.2
+  WaveSpeed: 0.4
   direction: 1
 --- !u!50 &446581118
 Rigidbody2D:
@@ -629,7 +628,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 758587506}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: -4.76, z: -4}
+  m_LocalPosition: {x: 1, y: -4.79, z: -5}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -647,7 +646,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f6e40697b542ed4189a3cccfb53f7cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveTransform: {fileID: 0}
   WaveSpeed: 0.3
   direction: 1
 --- !u!50 &758587511
@@ -687,7 +685,7 @@ GameObject:
   - component: {fileID: 1112959397}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -700,7 +698,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1112959391}
   m_LocalRotation: {x: -0, y: -0, z: 0.0013878082, w: 0.99999905}
-  m_LocalPosition: {x: -1.44, y: -3.31, z: -2}
+  m_LocalPosition: {x: -1.44, y: -3.405, z: -2}
   m_LocalScale: {x: 0.35, y: 0.35, z: 1}
   m_Children: []
   m_Father: {fileID: 1372641760}
@@ -777,7 +775,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -3.3, y: -1.7}
@@ -829,7 +827,7 @@ MonoBehaviour:
   shotPrefab: {fileID: 2461291549593763377, guid: 0a4115aaf1ad542f4b91d0b979677c81,
     type: 3}
   autoShootProbability: 0
-  fireCooldownTime: 0.3
+  fireCooldownTime: 0.6
   shotSound: {fileID: 8300000, guid: 2e345bddae99b4640912329008c744dd, type: 3}
 --- !u!1 &1118915821
 GameObject:
@@ -1050,9 +1048,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alienPrefab: {fileID: 6109818895556116853, guid: c4a415ac7d3e88942b913fd3e9ad4fa2,
     type: 3}
-  speed: 2
-  amountMovedDown: 0
-  amountMoveHorizontal: 0
+  changeDirectionProbability: 0.005
+  layerPlus: 0
+  speed: 2.5
 --- !u!1 &1372641759
 GameObject:
   m_ObjectHideFlags: 0
@@ -1240,7 +1238,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1556083456}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.58, y: -4.54, z: -4}
+  m_LocalPosition: {x: 0.58, y: -4.61, z: -4}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1258,8 +1256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f6e40697b542ed4189a3cccfb53f7cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveTransform: {fileID: 0}
-  WaveSpeed: 0.5
+  WaveSpeed: 0.35
   direction: 1
 --- !u!50 &1556083461
 Rigidbody2D:
@@ -1297,7 +1294,7 @@ GameObject:
   - component: {fileID: 1643294589}
   m_Layer: 0
   m_Name: Wave1
-  m_TagString: Untagged
+  m_TagString: Wave
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1385,7 +1382,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1643294584}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.31, y: -4.13, z: 0}
+  m_LocalPosition: {x: 0.31, y: -4.174, z: -1}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1403,8 +1400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f6e40697b542ed4189a3cccfb53f7cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveTransform: {fileID: 1643294587}
-  WaveSpeed: 1
+  WaveSpeed: 0.5
   direction: 1
 --- !u!50 &1643294589
 Rigidbody2D:
@@ -1530,7 +1526,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1902777812}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.36, y: -4.17, z: -1}
+  m_LocalPosition: {x: -0.36, y: -4.29, z: -1}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1548,8 +1544,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f6e40697b542ed4189a3cccfb53f7cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveTransform: {fileID: 0}
-  WaveSpeed: 0.8
+  WaveSpeed: 0.45
   direction: 1
 --- !u!50 &1902777817
 Rigidbody2D:
