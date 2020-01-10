@@ -826,8 +826,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shotPrefab: {fileID: 2461291549593763377, guid: 0a4115aaf1ad542f4b91d0b979677c81,
     type: 3}
+  shotPrefab2: {fileID: 2461291549593763377, guid: 0a4115aaf1ad542f4b91d0b979677c81,
+    type: 3}
+  doubleAttackTimeLimit: 10
   autoShootProbability: 0
-  fireCooldownTime: 0.95
   shotSound: {fileID: 8300000, guid: 2e345bddae99b4640912329008c744dd, type: 3}
 --- !u!1 &1118915821
 GameObject:
@@ -1028,7 +1030,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1135225359}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1372641760}
@@ -1133,6 +1135,7 @@ Transform:
   - {fileID: 594795748}
   - {fileID: 459691412}
   - {fileID: 1291800628}
+  - {fileID: 1833303054}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1473,6 +1476,54 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!1 &1833303053
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1833303054}
+  - component: {fileID: 1833303055}
+  m_Layer: 0
+  m_Name: Bonus
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1833303054
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1833303053}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1372641760}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1833303055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1833303053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc94a1e81fa3b724fbf75a97a7eee103, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amoPrefab: {fileID: 7278181467950615046, guid: 5ce3a8e4e111fbf4eaf66411aa3ebf80,
+    type: 3}
+  spawnProbability: 0.004
+  changeDirectionProbability: 0.005
+  speed: 3
 --- !u!1 &1902777812
 GameObject:
   m_ObjectHideFlags: 0

@@ -73,6 +73,7 @@ public class Nuke: MonoBehaviour
 
                 // Report enemy hit to the game master
                 GameMaster.NukeHit();
+                Instantiate(explosion, transform.position - new Vector3(0,1.5f,1), Quaternion.identity);
 
                 // Destroy self
 

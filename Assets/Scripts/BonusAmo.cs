@@ -1,37 +1,33 @@
 ﻿using UnityEngine;
 
-public class NukeWave: MonoBehaviour
+public class BonusAmo : MonoBehaviour
 {
 
     // Variable poitning to object prefab
-    public Transform nukePrefab;
+    public Transform amoPrefab;
+
+    public static bool falling = false;
+
+    public float spawnProbability;
 
     public float changeDirectionProbability;
 
-    public int layerPlus = 0;
-
     // Speed of the wave movement
     public float speed;
-
-    public int nukeLifePlus = 3;
 
     // Direction of the wave movement (-ve means left, +ve is right)
     int direction = -1;
 
     // Use this for initialization
-    void Start()
-    {
-        SetNuke();
-    }
 
     // Update is called once per frame
     void Update()
     {
-        // Generate number a random number between 0 and 1
-        float randomSample = Random.Range(0f, 1f);
-        // If that random number is less than the 
-        // probability of shooting, then try to shoot
-        if (randomSample < changeDirectionProbability)
+
+        float randomDirection = Random.Range(0f, 1f);
+        float randomSpawn = Random.Range(0f, 1f);
+
+        if (randomDirection < changeDirectionProbability)
         {
             if (direction == -1)
             {
@@ -44,13 +40,10 @@ public class NukeWave: MonoBehaviour
         }
         // Move the wave on the horizonatal axis
         transform.Translate(new Vector3(Time.deltaTime * direction * 0.5f, -1 * Time.deltaTime * speed * 0.2f, 0f));
-        if (GameMaster.nukeHealth == 0)
+        if (randomDirection < spawnProbability && falling == false)
         {
-            SetNuke();
-
-            GameMaster.nukeHealth = 10 + nukeLifePlus;
-            nukeLifePlus += 3;
-            speed += 0.4f;
+            SetAmo();
+            falling = true;
         }
     }
 
@@ -80,15 +73,15 @@ public class NukeWave: MonoBehaviour
         }
     }
 
-    public void SetNuke()
+    public void SetAmo()
     {
         direction = -1;
 
         // Create new game object (from the prefab)
-        Transform nuke = Instantiate(nukePrefab);
+        Transform nuke = Instantiate(amoPrefab);
         nuke.parent = transform;
         // Position the newly created object in the wave
-        nuke.localPosition = new Vector3(0, 6, 0);
+        nuke.localPosition = new Vector3(0, 4, 0);
 
         transform.position = new Vector3(0, 0, -1);
     }

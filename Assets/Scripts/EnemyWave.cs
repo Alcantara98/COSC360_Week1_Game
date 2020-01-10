@@ -107,7 +107,7 @@ public class EnemyWave : MonoBehaviour
                 Transform alien = Instantiate(alienPrefab);
                 alien.parent = transform;
                 // Position the newly created object in the wave
-                alien.localPosition = new Vector3((x * gapBetweenAliens) + offsetX, 0 + (y * (gapBetweenAliens - 0.5f)) + 4 + yOffset, 0);
+                alien.localPosition = new Vector3((x * gapBetweenAliens) + offsetX, 0 + (y * (gapBetweenAliens - 0.5f)) + 4 + yOffset, -1);
                 alien.rotation = Quaternion.identity;
                 alien.Rotate(0.0f, 0.0f, -210.0f, Space.Self);
                 yOffset += 0.1f;

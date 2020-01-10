@@ -1,55 +1,44 @@
-﻿using UnityEngine;
+﻿using UnityEngine.SceneManagement;
+using UnityEngine;
 
-public class Alien : MonoBehaviour
+public class Amo : MonoBehaviour
 {
-    //Points the alien is worth
-    public int points = 100;
-    public GameObject explosion;
 
     // When enemy collides with an object with a
     // collider that is a trigger...
     void OnTriggerEnter2D(Collider2D other)
     {
-        EnemyWave wave;
+        BonusAmo wave;
 
         // Check if colliding with the left or right wall
         // (by checking the tags of the collider that the enemy
         //  collided with)
         if (other.tag == "LeftWall")
         {
-            // If collided with the left wall, get a reference
-            // to the EnemyWave object, which should be a component
-            // of enemies parent
-            wave = transform.parent.GetComponent<EnemyWave>();
-            // Set direction of the wave
+            wave = transform.parent.GetComponent<BonusAmo>();
             wave.SetDirectionRight();
         }
         else if (other.tag == "RightWall")
         {
-            // If collided with the right wall, get a reference
-            // to the EnemyWave object, which should be a component
-            // of enemies parent
-            wave = transform.parent.GetComponent<EnemyWave>();
-            // Set direction of the wave
+            wave = transform.parent.GetComponent<BonusAmo>();
             wave.SetDirectionLeft();
         }
         else if (other.tag == "BottomWall")
-        { 
-            GameMaster.EnemyHit(this, false);
-            Instantiate(explosion, transform.position, Quaternion.identity);
+        {
+            BonusAmo.falling = false;
             Destroy(gameObject);
         }
         else if (other.tag == "Wave")
         {
-            GameMaster.EnemyHit(this, false);
-            Instantiate(explosion, transform.position, Quaternion.identity);
+            BonusAmo.falling = false;
             Destroy(gameObject);
         }
         else if (other.tag == "Player")
         {
-            GameMaster.EnemyHit(this, false);
-            GameMaster.PlayerHit();
-            Instantiate(explosion, transform.position, Quaternion.identity);
+            Attack.timeToStopDoubleAttack = Time.time;
+            Attack.doubleAttack = true;
+            Attack.fireCooldownTime = 0.3f;
+            BonusAmo.falling = false;
             Destroy(gameObject);
         }
         else
@@ -68,13 +57,10 @@ public class Alien : MonoBehaviour
                 // Destroy the projectile game object
                 Destroy(other.gameObject);
 
-                // Report enemy hit to the game master
-                GameMaster.EnemyHit(this, true);
-
+                BonusAmo.falling = false;
                 // Destroy self
-                Instantiate(explosion, transform.position, Quaternion.identity);
                 Destroy(gameObject);
-                //gameObject.SetActive(false);
+
 
             }
         }

@@ -7,7 +7,7 @@ public class GameMaster : MonoBehaviour
     // of this variable for the entire game
     public static int enemyLeft = 0;
     // Player health - always start with 3 lives
-    public static int playerHealth = 1;
+    public static int playerHealth = 10;
     // Player score
     public static int playerScore = 0;
 
