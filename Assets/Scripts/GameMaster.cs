@@ -7,9 +7,11 @@ public class GameMaster : MonoBehaviour
     // of this variable for the entire game
     public static int enemyLeft = 0;
     // Player health - always start with 3 lives
-    public static int playerHealth = 1000;
+    public static int playerHealth = 1;
     // Player score
     public static int playerScore = 0;
+
+    public static int nukeHealth = 10;
 
     // Method to call when enemy is hit
     public static void EnemyHit(Alien alien, bool player)
@@ -49,5 +51,10 @@ public class GameMaster : MonoBehaviour
             //No more lives left, load the GameOver scene
             SceneManager.LoadScene("GameOver");
         }
+    }
+    
+    public static void NukeHit()
+    {
+        nukeHealth--;
     }
 }

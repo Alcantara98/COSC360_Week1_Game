@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class Delete : MonoBehaviour
@@ -14,7 +15,12 @@ public class Delete : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Time.time - time > 0.2f)
+        if (Time.time - time > 0.3f && GameMaster.playerHealth == 0) 
+        {
+            GameMaster.playerHealth = 1;
+            GameMaster.PlayerHit();
+        }
+        else if (Time.time - time > 0.4f)
         {
             Destroy(gameObject);
         }

@@ -15,7 +15,7 @@ public class Attack : MonoBehaviour
     public float fireCooldownTime;
 
     // How much time is left until able to fire again 
-    float fireCooldownTimeLeft = 0;
+    float fireCooldownTimeLeft;
 
     // Variable storing a reference to an audio clip
     public AudioClip shotSound = null;

@@ -827,7 +827,7 @@ MonoBehaviour:
   shotPrefab: {fileID: 2461291549593763377, guid: 0a4115aaf1ad542f4b91d0b979677c81,
     type: 3}
   autoShootProbability: 0
-  fireCooldownTime: 0.6
+  fireCooldownTime: 0.95
   shotSound: {fileID: 8300000, guid: 2e345bddae99b4640912329008c744dd, type: 3}
 --- !u!1 &1118915821
 GameObject:
@@ -917,9 +917,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 9c4dab790faf141769805a581aa3389d, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 3d50b8d87ea60fe4eb1457512fd00d1a, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.3
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1051,6 +1051,55 @@ MonoBehaviour:
   changeDirectionProbability: 0.005
   layerPlus: 0
   speed: 2.5
+--- !u!1 &1291800627
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1291800628}
+  - component: {fileID: 1291800629}
+  m_Layer: 0
+  m_Name: NukeWave
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1291800628
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1291800627}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1372641760}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1291800629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1291800627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b918aa344302d014b8ddf4f37b096155, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nukePrefab: {fileID: 2207262153007125241, guid: f7d22b7c737b8cf4db98234c45dbed23,
+    type: 3}
+  changeDirectionProbability: 0.005
+  layerPlus: 0
+  speed: 0.8
+  nukeLifePlus: 3
 --- !u!1 &1372641759
 GameObject:
   m_ObjectHideFlags: 0
@@ -1083,6 +1132,7 @@ Transform:
   - {fileID: 1426199229}
   - {fileID: 594795748}
   - {fileID: 459691412}
+  - {fileID: 1291800628}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

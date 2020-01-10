@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using UnityEngine.SceneManagement;
+using UnityEngine;
 
-public class Alien : MonoBehaviour
+public class Nuke: MonoBehaviour
 {
     //Points the alien is worth
     public int points = 100;
@@ -10,7 +11,7 @@ public class Alien : MonoBehaviour
     // collider that is a trigger...
     void OnTriggerEnter2D(Collider2D other)
     {
-        EnemyWave wave;
+        NukeWave wave;
 
         // Check if colliding with the left or right wall
         // (by checking the tags of the collider that the enemy
@@ -20,7 +21,7 @@ public class Alien : MonoBehaviour
             // If collided with the left wall, get a reference
             // to the EnemyWave object, which should be a component
             // of enemies parent
-            wave = transform.parent.GetComponent<EnemyWave>();
+            wave = transform.parent.GetComponent<NukeWave>();
             // Set direction of the wave
             wave.SetDirectionRight();
         }
@@ -29,26 +30,28 @@ public class Alien : MonoBehaviour
             // If collided with the right wall, get a reference
             // to the EnemyWave object, which should be a component
             // of enemies parent
-            wave = transform.parent.GetComponent<EnemyWave>();
+            wave = transform.parent.GetComponent<NukeWave>();
             // Set direction of the wave
             wave.SetDirectionLeft();
         }
         else if (other.tag == "BottomWall")
-        { 
-            GameMaster.EnemyHit(this, false);
+        {
+            GameMaster.playerHealth = 0;
+            explosion.transform.localScale = new Vector2(2.0f, 2.0f);
             Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
         else if (other.tag == "Wave")
         {
-            GameMaster.EnemyHit(this, false);
+            GameMaster.playerHealth = 0;
+            explosion.transform.localScale = new Vector2(2.0f, 2.0f);
             Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
         else if (other.tag == "Player")
         {
-            GameMaster.EnemyHit(this, false);
-            GameMaster.PlayerHit();
+            GameMaster.playerHealth = 0;
+            explosion.transform.localScale = new Vector2(2.0f, 2.0f);
             Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
@@ -69,12 +72,15 @@ public class Alien : MonoBehaviour
                 Destroy(other.gameObject);
 
                 // Report enemy hit to the game master
-                GameMaster.EnemyHit(this, true);
+                GameMaster.NukeHit();
 
                 // Destroy self
-                explosion.transform.localScale = new Vector2(0.1f, 0.1f);
-                Instantiate(explosion, transform.position, Quaternion.identity);
-                Destroy(gameObject);
+
+                if (GameMaster.nukeHealth == 0)
+                {
+                    Instantiate(explosion, transform.position, Quaternion.identity);
+                    Destroy(gameObject);
+                }
                 //gameObject.SetActive(false);
 
             }
