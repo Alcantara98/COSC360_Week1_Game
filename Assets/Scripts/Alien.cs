@@ -11,6 +11,7 @@ public class Alien : MonoBehaviour
     // collider that is a trigger...
     void OnTriggerEnter2D(Collider2D other)
     {
+        explosion.transform.localScale = new Vector2(0.1f, 0.1f);
         EnemyWave wave;
 
         // Check if colliding with the left or right wall

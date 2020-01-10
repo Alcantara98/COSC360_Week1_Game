@@ -3,7 +3,6 @@ using UnityEngine.SceneManagement;
 
 public class GameMaster : MonoBehaviour
 {
-
     public static int HighestScore = 0;
     // Static variables - there's only one instance
     // of this variable for the entire game
@@ -34,10 +33,6 @@ public class GameMaster : MonoBehaviour
 
         //Updates Enemy Left
         enemyLeft = aliensLeft.Length;
-        if(playerScore > HighestScore)
-        {
-            HighestScore = playerScore;
-        }
         // If only one alien is left, that's the alien that just has been
         // hit and is about to be deleted...so no more aliens will be left
         //if (aliensLeft.Length == 1)
@@ -62,5 +57,6 @@ public class GameMaster : MonoBehaviour
     public static void NukeHit()
     {
         nukeHealth--;
+        playerScore += 100;
     }
 }

@@ -37,7 +37,7 @@ public class Amo : MonoBehaviour
         {
             Attack.timeToStopDoubleAttack = Time.time;
             Attack.doubleAttack = true;
-            Attack.fireCooldownTime = 0.3f;
+            Attack.fireCooldownTime = 0.1f;
             BonusAmo.falling = false;
             Destroy(gameObject);
         }

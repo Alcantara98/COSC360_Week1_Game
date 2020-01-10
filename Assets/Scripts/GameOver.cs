@@ -29,21 +29,22 @@ public class GameOver : MonoBehaviour
         // Check player's lives left...if more than 0,
         // then player won, otherwise the game was lost   
         // Generate appropriate final message
-        if (GameMaster.playerHealth <= 0)
+        if (GameMaster.playerScore < GameMaster.HighestScore)
         {
             // The lost message will be shown in red
-            message = "You lost :(";
+            message = "You lost   Score: " + GameMaster.playerScore;
             GUI.color = Color.red;
         }
         else
         {
             // The won message will be shown in white
-            message = "You won!!!";
+            message = "New Highest Score!!! You won!!!";
             GUI.color = Color.white;
+            GameMaster.HighestScore = GameMaster.playerScore;
         }
         // Show lost/won message
         GUI.Label(new Rect(0, Screen.height / 4f + 50f, Screen.width, 70), message);
-        GUI.Label(new Rect(0, Screen.height / 4f + 100f, Screen.width, 70), "Highest Score" + GameMaster.HighestScore);
+        GUI.Label(new Rect(0, Screen.height / 4f + 100f, Screen.width, 70), "Highest Score: " + GameMaster.HighestScore);
 
         // Last line will be shown in white
         GUI.color = Color.white;

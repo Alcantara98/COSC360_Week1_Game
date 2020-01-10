@@ -36,7 +36,7 @@ public class Nuke: MonoBehaviour
             wave.SetDirectionLeft();
         }
         else if (other.tag == "BottomWall")
-        {
+        { 
             if (explosionSound != null)
             {
                 AudioSource.PlayClipAtPoint(explosionSound, transform.position);

@@ -48,7 +48,7 @@ public class NukeWave: MonoBehaviour
         {
             SetNuke();
 
-            GameMaster.nukeHealth = 10 + nukeLifePlus;
+            GameMaster.nukeHealth += nukeLifePlus;
             nukeLifePlus += 1;
             speed += 0.25f;
         }

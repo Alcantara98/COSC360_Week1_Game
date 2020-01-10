@@ -15,7 +15,7 @@ public class Attack : MonoBehaviour
     public float autoShootProbability;
 
     // Cooldown time for firing
-    public static float fireCooldownTime = 0.9f;
+    public static float fireCooldownTime = 0.4f;
 
     // How much time is left until able to fire again 
     float fireCooldownTimeLeft = 0.8f;
@@ -54,7 +54,7 @@ public class Attack : MonoBehaviour
         if (Time.time - timeToStopDoubleAttack > doubleAttackTimeLimit)
         {
             doubleAttack = false;
-            fireCooldownTime = 0.9f;
+            fireCooldownTime = 0.4f;
         }
         // Shoot only if the fire cooldown period
         // has expired
