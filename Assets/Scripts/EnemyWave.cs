@@ -101,7 +101,7 @@ public class EnemyWave : MonoBehaviour
         {
             // Horizontal offset for every other row
             float offsetX = ((y % 2 == 0) ? 0.0f : 0.5f) * gapBetweenAliens;
-            for (int x = -4; x < 4; ++x)
+            for (int x = -6; x < 6; ++x)
             {
                 // Create new game object (from the prefab)
                 Transform alien = Instantiate(alienPrefab);

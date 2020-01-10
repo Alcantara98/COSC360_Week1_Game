@@ -145,3 +145,4 @@ MonoBehaviour:
   points: 100
   explosion: {fileID: 7857839376855828405, guid: 82e6c826718a8eb42bdb9c771ba8cfd0,
     type: 3}
+  explosionSound: {fileID: 8300000, guid: 6480b9209c850bc4d8a14510fa5da8f0, type: 3}

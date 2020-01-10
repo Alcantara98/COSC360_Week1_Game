@@ -5,6 +5,7 @@ public class Alien : MonoBehaviour
     //Points the alien is worth
     public int points = 100;
     public GameObject explosion;
+    public AudioClip explosionSound = null;
 
     // When enemy collides with an object with a
     // collider that is a trigger...
@@ -34,19 +35,31 @@ public class Alien : MonoBehaviour
             wave.SetDirectionLeft();
         }
         else if (other.tag == "BottomWall")
-        { 
+        {
+            if (explosionSound != null)
+            {
+                AudioSource.PlayClipAtPoint(explosionSound, transform.position);
+            }
             GameMaster.EnemyHit(this, false);
             Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
         else if (other.tag == "Wave")
         {
+            if (explosionSound != null)
+            {
+                AudioSource.PlayClipAtPoint(explosionSound, transform.position);
+            }
             GameMaster.EnemyHit(this, false);
             Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
         else if (other.tag == "Player")
         {
+            if (explosionSound != null)
+            {
+                AudioSource.PlayClipAtPoint(explosionSound, transform.position);
+            }
             GameMaster.EnemyHit(this, false);
             GameMaster.PlayerHit();
             Instantiate(explosion, transform.position, Quaternion.identity);
@@ -63,6 +76,10 @@ public class Alien : MonoBehaviour
             //If that refernce is not null, then check if it's an enemyProjectile      
             if (projectile != null && !projectile.enemyProjectile)
             {
+                if (explosionSound != null)
+                {
+                    AudioSource.PlayClipAtPoint(explosionSound, transform.position);
+                }
                 // Collided with non enemy projectile (so a player projectile)
 
                 // Destroy the projectile game object

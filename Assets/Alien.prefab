@@ -120,6 +120,7 @@ MonoBehaviour:
   points: 100
   explosion: {fileID: 7857839376855828405, guid: 82e6c826718a8eb42bdb9c771ba8cfd0,
     type: 3}
+  explosionSound: {fileID: 8300000, guid: 6480b9209c850bc4d8a14510fa5da8f0, type: 3}
 --- !u!114 &4058514198948078252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,8 +135,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shotPrefab: {fileID: 8564043787735006014, guid: 628e496ca828440d199bc0d75a3449a6,
     type: 3}
+  shotPrefab2: {fileID: 0}
+  doubleAttackTimeLimit: 0
   autoShootProbability: 0
-  fireCooldownTime: 0
   shotSound: {fileID: 0}
 --- !u!70 &546406919057771630
 CapsuleCollider2D:

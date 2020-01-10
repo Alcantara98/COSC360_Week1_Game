@@ -3,14 +3,13 @@ using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour
 {
-
     // Update is called once per frame
     void Update()
     {
-        if (Input.anyKey)
+        if (Input.GetKeyDown(KeyCode.Return))
         {
             // Go back to main menu 
-            SceneManager.LoadScene("MainMenu");
+            SceneManager.LoadScene("TitleScreen");
         }
     }
 
@@ -21,7 +20,7 @@ public class GameOver : MonoBehaviour
         // Show player score in white on the top left of the screen
         GUI.color = Color.white;
         GUI.skin.label.alignment = TextAnchor.MiddleCenter;
-        GUI.skin.label.fontSize = 40;
+        GUI.skin.label.fontSize = 30;
         GUI.skin.label.fontStyle = FontStyle.Bold;
         GUI.Label(new Rect(0, Screen.height / 4f, Screen.width, 70), "Game over");
 
@@ -43,10 +42,11 @@ public class GameOver : MonoBehaviour
             GUI.color = Color.white;
         }
         // Show lost/won message
-        GUI.Label(new Rect(0, Screen.height / 4f + 80f, Screen.width, 70), message);
+        GUI.Label(new Rect(0, Screen.height / 4f + 50f, Screen.width, 70), message);
+        GUI.Label(new Rect(0, Screen.height / 4f + 100f, Screen.width, 70), "Highest Score" + GameMaster.HighestScore);
 
         // Last line will be shown in white
         GUI.color = Color.white;
-        GUI.Label(new Rect(0, Screen.height / 4f + 240f, Screen.width, 70), "Press any key to continue...");
+        GUI.Label(new Rect(0, Screen.height / 4f + 240f, Screen.width, 70), "Press Enter to continue...");
     }
 }

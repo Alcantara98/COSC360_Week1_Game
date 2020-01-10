@@ -6,6 +6,7 @@ public class Nuke: MonoBehaviour
     //Points the alien is worth
     public int points = 100;
     public GameObject explosion;
+    public AudioClip explosionSound = null;
 
     // When enemy collides with an object with a
     // collider that is a trigger...
@@ -36,6 +37,10 @@ public class Nuke: MonoBehaviour
         }
         else if (other.tag == "BottomWall")
         {
+            if (explosionSound != null)
+            {
+                AudioSource.PlayClipAtPoint(explosionSound, transform.position);
+            }
             GameMaster.playerHealth = 0;
             explosion.transform.localScale = new Vector2(2.0f, 2.0f);
             Instantiate(explosion, transform.position, Quaternion.identity);
@@ -43,6 +48,10 @@ public class Nuke: MonoBehaviour
         }
         else if (other.tag == "Wave")
         {
+            if (explosionSound != null)
+            {
+                AudioSource.PlayClipAtPoint(explosionSound, transform.position);
+            }
             GameMaster.playerHealth = 0;
             explosion.transform.localScale = new Vector2(2.0f, 2.0f);
             Instantiate(explosion, transform.position, Quaternion.identity);
@@ -50,6 +59,10 @@ public class Nuke: MonoBehaviour
         }
         else if (other.tag == "Player")
         {
+            if (explosionSound != null)
+            {
+                AudioSource.PlayClipAtPoint(explosionSound, transform.position);
+            }
             GameMaster.playerHealth = 0;
             explosion.transform.localScale = new Vector2(2.0f, 2.0f);
             Instantiate(explosion, transform.position, Quaternion.identity);
@@ -79,6 +92,10 @@ public class Nuke: MonoBehaviour
 
                 if (GameMaster.nukeHealth == 0)
                 {
+                    if (explosionSound != null)
+                    {
+                        AudioSource.PlayClipAtPoint(explosionSound, transform.position);
+                    }
                     Instantiate(explosion, transform.position, Quaternion.identity);
                     Destroy(gameObject);
                 }

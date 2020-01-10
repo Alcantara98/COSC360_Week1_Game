@@ -13,20 +13,21 @@ public class MainMenu : MonoBehaviour
 
             // Reset the player lives and
             // score
-            GameMaster.playerHealth = 3;
+            GameMaster.playerHealth = 10;
             GameMaster.playerScore = 0;
             // Load the first level
-            SceneManager.LoadScene("Level1");
+            SceneManager.LoadScene("Instructions");
         }
     }
 
     // Display main menu message
-    void OnGUI()
+    /*void OnGUI()
     {
         GUI.color = Color.white;
         GUI.skin.label.alignment = TextAnchor.MiddleCenter;
-        GUI.skin.label.fontSize = 40;
+        GUI.skin.label.fontSize = 10;
         GUI.skin.label.fontStyle = FontStyle.Bold;
-        GUI.Label(new Rect(0, 0, Screen.width, Screen.height), "Press any key to start");
+        GUI.Label(new Rect(0, 90, Screen.width, Screen.height), "Press any key to start");
     }
+    */
 }
